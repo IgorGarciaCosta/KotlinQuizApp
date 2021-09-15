@@ -8,13 +8,12 @@
     android:orientation="vertical"
     android:background="@drawable/ic_bg"
     android:gravity="center_horizontal"
-    android:layout_marginStart="20dp"
-    android:layout_marginEnd="20dp"
+
     android:padding="20dp">
 
 
         <TextView
-            android:id="@+id/tv_score"
+            android:id="@+id/tv_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Result"
@@ -61,7 +60,7 @@
             tools:layout_editor_absoluteY="437dp" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/tv_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Your Score is 9 out of 10"

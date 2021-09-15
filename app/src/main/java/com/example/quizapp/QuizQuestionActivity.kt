@@ -1,5 +1,6 @@
 package com.example.quizapp
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.graphics.drawable.AdaptiveIconDrawable
@@ -18,10 +19,12 @@ class QuizQuestionActivity : AppCompatActivity(), View.OnClickListener {
     private var mQuestionsList:ArrayList<Question>? = null
     private var mSelectedOptionPosition:Int = 0
     private var mCorrectAnswers:Int = 0
+    private var mUserName:String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_question)
+        mUserName = intent.getStringExtra(Constants.USER_NAME)
 
         mQuestionsList = Constants.getQuestions()
 
@@ -93,7 +96,12 @@ class QuizQuestionActivity : AppCompatActivity(), View.OnClickListener {
                             setQuestion()
                         }
                         else->{
-                            Toast.makeText(this, "Success!!", Toast.LENGTH_SHORT).show()
+                            val intent  = Intent(this, activity_Result::class.java)
+                            intent.putExtra(Constants.USER_NAME, mUserName)
+                            intent.putExtra(Constants.CORRECT_ANSWERS, mCorrectAnswers)
+                            intent.putExtra(Constants.TOTAL_QUESTIONS, mQuestionsList!!.size)
+                            startActivity(intent)
+                            finish()
                         }
                     }
                 }
@@ -108,6 +116,7 @@ class QuizQuestionActivity : AppCompatActivity(), View.OnClickListener {
 
                     if(mCurrentPosition == mQuestionsList!!.size){
                         btn_submit.text = "FINISH"
+
                     }
                     else{
                         btn_submit.text = "Next Question"
