@@ -2,6 +2,8 @@
 <resources>
     <color name="colorAccent">#C89BFF</color>
     <color name="colorPrimarydark">#6D5197</color>
+    <color name="lightGreen">#59C83F</color>
+    <color name="lightRed">#FF4848</color>
     <color name="colorPrimary">#B678DD</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
